@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ data.firstname }}{{data.lastname}} - Resume</title>
+    <link rel="stylesheet" href="/static/template2.css" />
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .resume {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 40px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0 0 10px 0;
+    }
+
+    h1 {
+      font-size: 36px;
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+
+    h3 {
+      font-size: 18px;
+      color: #2c3e50;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .title {
+      font-size: 18px;
+      color: #7f8c8d;
+      margin: 10px 0;
+    }
+
+    .contact {
+      font-size: 14px;
+    }
+
+    .contact a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    .summary,
+    .experience,
+    .education,
+    .achievements,
+    .skills,
+    .certification,
+    .passions,
+    .languages {
+      margin-bottom: 30px;
+    }
+
+    .job,
+    .education-item {
+      margin-bottom: 20px;
+    }
+
+    .job-header,
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 5px;
+    }
+
+    .job-info,
+    .edu-info {
+      text-align: right;
+      color: #7f8c8d;
+      font-size: 14px;
+    }
+
+    .job-title {
+      font-style: italic;
+      color: #7f8c8d;
+      margin: 0 0 10px 0;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    .achievements-grid,
+    .passions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .achievement,
+    .passion {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .achievement-icon,
+    .passion-icon {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .achievement h3,
+    .passion h3 {
+      color: #3498db;
+      margin-top: 0;
+    }
+
+    .skills p {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cert-item {
+      margin-bottom: 15px;
+    }
+
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .language {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lang-name {
+      font-weight: bold;
+    }
+
+    .proficiency {
+      font-size: 14px;
+      color: #7f8c8d;
+    }
+
+    .proficiency-dots {
+      color: #3498db;
+      letter-spacing: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .resume {
+        padding: 20px;
+      }
+
+      .job-header,
+      .edu-header {
+        flex-direction: column;
+      }
+
+      .job-info,
+      .edu-info {
+        text-align: left;
+        margin-top: 5px;
+      }
+
+      .achievements-grid,
+      .passions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .language-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <body>
+    <main class="resume">
+      <!-- Header Section -->
+      <header class="header">
+        <h1>{{ data.firstname }} {{ data.lastname }}</h1>
+        <p class="title">{{ data["current-role"] }}</p>
+        <div class="contact">
+          <a href="mailto:{{ data.email }}">{{ data.email }}</a> •
+          <a href="{{ data.linkedin }}">LinkedIn</a> •
+          <a href="{{ data.github }}">GitHub</a> •
+          <span>{{ data.city }}, {{ data.country }} - {{ data.pincode }}</span>
+          •
+          <span>Phone: {{ data.phone }}</span>
+        </div>
+      </header>
+
+      <!-- Summary Section -->
+      <section class="summary">
+        <h2>Summary</h2>
+        <p>{{ data.summary }}</p>
+      </section>
+
+      <!-- Experience Section -->
+      {% if data.experience != '' %}
+
+      <section class="experience">
+        <h2>Relevant Experience</h2>
+        <article class="job">
+          <p>{{ data.experience }}</p>
+        </article>
+      </section>
+      {% endif %}
+
+      <!-- Education Section -->
+      <section class="education">
+        <h2>Education and Learning Background</h2>
+        <p><strong>College/School:</strong> {{ data.collegename }}</p>
+        <p><strong>Degree:</strong> {{ data.degree }}</p>
+        <p><strong>Department:</strong> {{ data.department }}</p>
+        <p><strong>Graduation Date:</strong> {{ data.graduation_date }}</p>
+      </section>
+
+      <!-- Achievements Section -->
+      <section class="achievements">
+        <h2>Achievements</h2>
+        <ul>
+          {% for achievement in data.achievements.split(',') %}
+          <li>{{ achievement }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="skills">
+        <h2>Skills</h2>
+        <ul>
+          {% for skill in data.skills %}
+          <li>{{ skill }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <!-- Certification Section -->
+      <section class="certification">
+        <h2>Certifications</h2>
+        <ul>
+          {% for cert in data.certification %}
+          <li>{{ cert }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="projects">
+        <h2>Projects</h2>
+        <article class="project">
+          <h3>{{ data.project1_name }}</h3>
+          <p>{{ data.project1_desc }}</p>
+        </article>
+      </section>
+
+      <!-- Extracurricular Activities Section -->
+      <section class="activities">
+        <h2>Extracurricular Activities</h2>
+        <ul>
+          {% for activity in data.activities %}
+          <li>{{ activity}}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <!-- Languages Section -->
+      <section class="languages">
+        <h2>Languages</h2>
+        <ul>
+          {% for language in data.languages %}
+          <li>{{ language }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+    </main>
+    <button class="print-hidden print-btn" id="download">Download</button>
+
+    <style>
+      @media print {
+        .print-hidden {
+          display: none;
+        }
+      }
+      .print-hidden.print-btn {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .print-hidden.print-btn::before {
+        content: "\2193"; /* Downward arrow Unicode character */
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .print-hidden.print-btn:hover {
+        background-color: #2980b9;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        padding-left: 40px;
+      }
+
+      .print-hidden.print-btn:hover::before {
+        opacity: 1;
+        left: 15px;
+      }
+
+      .print-hidden.print-btn:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      @media print {
+        .print-hidden {
+          display: none !important;
+        }
+      }
+    </style>
+
+    <script>
+      document.getElementById("download").addEventListener("click", (e) => {
+        e.preventDefault();
+        window.print();
+      });
+    </script>
+  </body>
+</html>

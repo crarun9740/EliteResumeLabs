@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Template</title>
+    <link rel="stylesheet" href="/static/template3.css" />
+  </head>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      line-height: 1.6;
+      color: #494949;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+    }
+
+    .resume {
+      background-color: #ffffff;
+      padding: 40px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #494949;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      text-transform: uppercase;
+      background-color: #f88b79;
+      color: #ffffff;
+      padding: 5px 10px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    .summary p,
+    .skills ul,
+    .job p,
+    .education p,
+    .certifications p {
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+
+    .skills ul {
+      list-style-type: none;
+      padding-left: 20px;
+    }
+
+    .skills li::before {
+      content: "•";
+      color: #494949;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+
+    .job {
+      margin-bottom: 20px;
+    }
+
+    .job-date {
+      font-weight: normal;
+      margin-bottom: 5px;
+    }
+
+    h3 {
+      font-size: 1em;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .education h3,
+    .certifications p {
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      .resume {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.1em;
+      }
+    }
+  </style>
+  <body>
+    <div class="resume">
+      <header>
+        <h1>{{ data.firstname }} {{ data.lastname }}</h1>
+        <p>
+          {{ data.email }} | <strong>Phone:</strong> {{ data.phone }} |
+          <strong>Location:</strong> {{ data.city }}, {{ data.country }} {{
+          data.pincode }}
+        </p>
+      </header>
+
+      <section class="summary">
+        <h2>PROFESSIONAL SUMMARY</h2>
+        <p>{{ data.summary }}</p>
+      </section>
+
+      <section class="skills">
+        <h2>SKILLS</h2>
+        <ul>
+          {% for skill in data.skills %}
+          <li>{{ skill }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      {% if data.experience != '' %}
+
+      <section class="work-history">
+        <h2>WORK HISTORY</h2>
+        <!-- article class="job"> -->
+          <p>{{ data.experience }}</p>
+        </article>
+      </section>
+      {% endif %}
+
+      <section class="education">
+        <h2>EDUCATION</h2>
+        <h3>{{ data.degree }}: {{ data.department }}</h3>
+        <p>{{ data.collegename }} | {{ data.city }}, {{ data.country }}</p>
+        <p>Graduation Date: {{ data.graduation_date }}</p>
+      </section>
+
+      <section class="certifications">
+        <h2>CERTIFICATIONS</h2>
+        {% for cert in data.certification %}
+        <p>{{ cert }}</p>
+        {% endfor %}
+      </section>
+
+      <section class="projects">
+        <h2>PROJECTS</h2>
+        <div>
+          <h3>{{ data.project1_name }}</h3>
+          <p>{{ data.project1_desc }}</p>
+        </div>
+      </section>
+
+      <section class="activities">
+        <h2>EXTRA CURRICULAR ACTIVITIES</h2>
+        <ul>
+          {% for activity in data.activities %}
+          <li>{{ activity }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="languages">
+        <h2>LANGUAGES</h2>
+        <ul>
+          {% for language in data.languages %}
+          <li>{{ language }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="achievements">
+        <h2>Achievements</h2>
+        <ul>
+          {% for achievement in data.achievement %}
+          <li>{{ achievement }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="links">
+        <h2>LINKS</h2>
+        <p><a href="{{ data.linkedin }}" target="_blank">
+          LinkedIn</a></p>
+        <p><a href="{{ data.github }}" target="_blank">GitHub</a></p>
+      </section>
+    </div>
+    <button class="print-hidden print-btn" id="download">Download</button>
+
+    <style>
+      @media print {
+        .print-hidden {
+          display: none;
+        }
+      }
+      .print-btn {
+        background-color: #0778f1;
+        padding: 0.25rem 0.3rem;
+        border-radius: 10px;
+        color: white;
+        margin-left: 700px;
+        margin-bottom: 20px;
+        border: 2px solid #ccc;
+      }
+      .print-btn:hover {
+        background-color: #00a6fb;
+        cursor: pointer;
+      }
+    </style>
+
+    <script>
+      document.getElementById("download").addEventListener("click", (e) => {
+        e.preventDefault();
+        window.print();
+      });
+    </script>
+  </body>
+</html>

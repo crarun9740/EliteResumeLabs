@@ -1,0 +1,13 @@
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=GEMINI_API_KEY" \
+-H 'Content-Type: application/json' \
+-X POST \
+-d '{
+  "contents": [{
+    "parts":[{"text": "You are an expert Resume Writer. Based on the information provided about the candidate, your task is to craft a concise, compelling, and professional summary tailored to highlight the candidate's key strengths, skills, and achievements. 
+
+The summary should be clear, impactful, and free of any explanations, comments, notes, or external links. Make any reasonable assumptions necessary to create a polished and effective summary.
+
+The output must be in valid XML. Follow the following guidelines:
+1. A <summary> element must include the actual summary"}]
+    }]
+   }'

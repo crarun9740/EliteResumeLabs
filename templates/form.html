@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Info - Resume Builder</title>
+    <script
+      src="https://kit.fontawesome.com/fff6881cae.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/static/form.css" />
+  </head>
+  <body>
+    <div class="log">
+      <a href="/logout"><button class="logout">Logout</button></a>
+    </div>
+    <div class="nav-bar">
+      <i class="fa-brands fa-slack"></i>
+      <label class="header">EliteResumeLab</label>
+    </div>
+    <div class="main-container">
+      <form action="/form/{{ id }}" method="post">
+        <div class="head">
+          <h1 class="header-1">Your First Step Towards Career Success</h1>
+          <h3 class="sub-header">
+            Your journey to the perfect resume starts here, fill in your
+            details.
+          </h3>
+        </div>
+        <div class="field-1">
+          <div class="name-field">
+            <label for="name">FIRSTNAME</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="e.g. Virat"
+              required
+            />
+          </div>
+          <div class="lastname">
+            <label for="lastname">LASTNAME</label>
+            <input
+              type="text"
+              name="lastname"
+              id="lastname"
+              placeholder="e.g. Kohli"
+              required
+            />
+          </div>
+        </div>
+        <div class="field-2">
+          <div class="city-field">
+            <label for="city">CITY</label>
+            <input
+              type="text"
+              name="city"
+              id="city"
+              placeholder="e.g. Bijapur"
+              required
+            />
+          </div>
+          <div class="country-field">
+            <label for="country">COUNTRY</label>
+            <input
+              type="text"
+              name="country"
+              id="country"
+              placeholder="e.g. India"
+              required
+            />
+          </div>
+        </div>
+        <div class="field-3">
+          <div class="pincode-field">
+            <label for="pincode">PINCODE</label>
+            <input
+              type="text"
+              name="pincode"
+              id="pincode"
+              placeholder="e.g. 577004"
+              required
+            />
+          </div>
+          <div class="phone-field">
+            <div class="phone">
+              <label for="phone">PHONE</label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                placeholder="e.g. +91 88 67 11 3688"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <h2 class="header-edu">Education and Learning Background</h2>
+        <h3 class="educ-sub-header">
+          Fill in your education background to highlight your qualifications.
+        </h3>
+
+        <div class="head-education">
+          <div id="educationdiv" class="education">
+            <div class="collegename">
+              <label for="college-name">COLLEGENAME/SCHOOLNAME</label>
+              <input
+                type="text"
+                id="college-name"
+                name="collegename"
+                placeholder="e.g. BIET"
+              />
+            </div>
+            <div class="degree">
+              <label for="degree-id">DEGREE</label>
+              <select id="degree-id" name="degree">
+                <option value="BE">BACHELORS OF ENGINEERING</option>
+                <option value="BTECH">BACHELOR OF TECHNOLOGY</option>
+                <option value="MTECH">MASTER OF TECHNOLOGY</option>
+                <option value="B A">BACHELOR OF ARTS</option>
+                <option value="B ED">BACHELOR OF EDUCATION</option>
+                <option value="PUC">PRE-UNIVERSITY COURSE</option>
+                <option value="SCHOOL">SCHOOL</option>
+              </select>
+            </div>
+            <div class="department-class">
+              <label for="department">DEPARTMENT</label>
+              <select id="department" name="department">
+                <option value="ISE">INFORMATION SCIENCE AND ENGINEERING</option>
+                <option value="CSBS">
+                  COMPUTER SCIENCE AND BUSINESS SYSTEM
+                </option>
+                <option value="CSE">COMPUTER SCIENCE AND ENGINEERING</option>
+                <option value="ECE">
+                  ELECTRONICS AND COMMUNICATION ENGINEERING
+                </option>
+                <option value="EEE">
+                  ELECTRICAL AND ELECTRONICS ENGINEERING
+                </option>
+                <option value="AI/ML">
+                  ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING
+                </option>
+                <option value="OTHERS">OTHERS</option>
+              </select>
+            </div>
+            <div class="graduation-date">
+              <label for="grad_date">GRADUATION DATE</label>
+              <input
+                type="date"
+                id="graduationdate"
+                name="graduation_date"
+                placeholder="e.g. 17/06/2008"
+              />
+            </div>
+          </div>
+
+          <div class="education-button">
+            <button class="btn btn-primary" role="button" type="button">
+              Add Education
+            </button>
+            <button class="btn btn-destructive" role="button" type="button">
+              Remove Education
+            </button>
+          </div>
+        </div>
+
+        <h2>Work Experience</h2>
+        <h3>Please provide details about your experience.</h3>
+        <div class="experience">
+          <div class="fresh-expierence">
+            <div class="fresher">
+              <label class="fresher-question"
+                >Do you have any prior work experience?</label
+              ><br />
+              <div class="fresherbtn">
+                <button
+                  class="btn btn-primary fresher-yes"
+                  role="button"
+                  type="button"
+                >
+                  Yes
+                </button>
+                <button
+                  class="btn btn-secondary fresher-no"
+                  role="button"
+                  type="button"
+                >
+                  No
+                </button>
+              </div>
+              <!-- <span class="noclicked"></span> -->
+            </div>
+            <div class="experience-placeholder">
+              <div class="exp-plc">
+                <label class="exp-que" for="experience"
+                  >Share your experience:</label
+                >
+                <input
+                  id="experience-plc"
+                  name="experience"
+                  placeholder="Describe your experience"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Skills</h2>
+        <h3>
+          Please list your key skills and proficiencies relevant to the role.
+        </h3>
+
+        <div class="technical">
+          <h2>Technical Skills</h2>
+          <h3>List the technical skills you have.</h3>
+          <div class="skills">
+            <div id="skills-list">
+              <input
+                class="techical-placeholder"
+                type="text"
+                name="skills[]"
+                placeholder="e.g. Java, Python"
+                class="skill-input"
+              />
+            </div>
+            <div class="skill-btn">
+              <button
+                role="button"
+                type="button"
+                class="btn btn-primary skill-add-btn"
+                id="add-skill-button"
+              >
+                Add
+              </button>
+              <button
+                role="button"
+                type="button"
+                class="btn btn-destructive skill-remove-btn"
+                id="remove-skill-button"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <h2>Projects</h2>
+        <h3>
+          Highlight your key projects and describe your role and achievements in
+          each.
+        </h3>
+
+        <div class="projects">
+          <div class="project-field">
+            <p class="project-number">Project 1</p>
+            <div class="project-name-container">
+              <label class="project-name-label" for="project-name-1"
+                >Project Name</label
+              >
+              <input
+                type="text"
+                class="project-name-input"
+                name="project_name"
+                placeholder="Project Name"
+                id="project-name-1"
+              />
+            </div>
+            <div class="project-description">
+              <label class="project-desc-label" for="project-desc-1"
+                >DESCRIPTION</label
+              >
+              <textarea
+                id="project-desc-1"
+                class="project_desc-field"
+                name="project_desc[]"
+                placeholder="Describe your project"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+          <div class="projects-button">
+            <button
+              class="btn btn-primary proj-btn-add"
+              role="button"
+              type="button"
+            >
+              Add Project
+            </button>
+            <button
+              class="btn btn-destructive proj-btn-remove"
+              role="button"
+              type="button"
+            >
+              Remove Project
+            </button>
+          </div>
+        </div>
+
+        <h2>Summary</h2>
+        <h3>
+          Provide a brief summary of your professional background, skills, and
+          key accomplishments.
+        </h3>
+
+        <div class="summary">
+          <textarea
+            rows="5"
+            name="summary"
+            placeholder="Write Summary here."
+            required
+          ></textarea>
+        </div>
+
+        <div class="links">
+          <h2>Links</h2>
+          <h3>Add Relevant Links (e.g. email, GitHub, LinkedIn)</h3>
+          <div class="all-link">
+            <div class="link-1">
+              <label class="linkedin" for="linkedin">LinkedIn</label>
+              <input
+                type="text"
+                id="linkedin"
+                name="linkedin"
+                placeholder="www.linkedin.com"
+              />
+            </div>
+            <div class="link-1">
+              <label class="github" for="github">GitHub</label>
+              <input
+                type="text"
+                id="github"
+                name="github"
+                placeholder="www.github.com"
+              />
+            </div>
+            <div class="link-1">
+              <label class="email" for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="xyz@gmail.com"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="activities">
+          <h2>Activities and Interests</h2>
+          <h3>
+            Highlight your hobbies, activities, and interests that reflect your
+            personality and creativity.
+          </h3>
+
+          <div id="activities-list">
+            <input
+              type="text"
+              name="activities[]"
+              placeholder="Your Activities and Interest"
+              class="activity-input"
+            />
+          </div>
+
+          <div class="activities-btn">
+            <button
+              type="button"
+              role="button"
+              class="btn btn-primary activity-add-btn"
+              id="add-activity-button"
+            >
+              Add
+            </button>
+            <button
+              type="button"
+              role="button"
+              class="btn btn-destructive activity-remove-btn"
+              id="remove-activity-button"
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+
+        <div class="achievements">
+          <h2>Achievements</h2>
+          <h3>
+            Highlight your notable achievements, awards, or recognitions that
+            showcase your professional and personal accomplishments.
+          </h3>
+          <textarea
+            class="achievements-area"
+            rows="5"
+            name="achievements"
+            placeholder="e.g. Best Performer of the Year, Winner of Coding Contest"
+          ></textarea>
+        </div>
+
+        <div class="certifications">
+          <h2>Certifications</h2>
+          <h3>
+            List your certifications that highlight your expertise and
+            qualifications.
+          </h3>
+          <div id="certifications-list">
+            <input
+              type="text"
+              name="certification[]"
+              placeholder="Add your Certifications"
+              class="certification-input"
+            />
+          </div>
+
+          <div class="certify-btn">
+            <button
+              role="button"
+              type="button"
+              class="btn btn-primary certify-add-btn"
+              id="add-certification-btn"
+            >
+              Add
+            </button>
+            <button
+              role="button"
+              type="button"
+              class="btn btn-destructive certify-remove-btn"
+              id="remove-certification-btn"
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+
+        <div class="communication-languages">
+          <div class="communication-container">
+            <h2>Communication Languages</h2>
+            <h3>List the languages you are proficient in.</h3>
+
+            <div id="languages-list">
+              <input
+                type="text"
+                name="languages[]"
+                placeholder="e.g. Kannada, English, Hindi"
+                class="language-input"
+              />
+            </div>
+
+            <button
+              class="btn btn-primary language-button"
+              type="button"
+              role="button"
+              id="add-language-button"
+            >
+              Add Language
+            </button>
+          </div>
+        </div>
+
+        <div class="current-role">
+          <h2>Current Role</h2>
+          <h3>
+            Describe your current job role, company, and key responsibilities
+            that demonstrate your professional experience.
+          </h3>
+
+          <div class="roleinput-container">
+            <textarea
+              class="currentrole-input"
+              rows="5"
+              name="current-role"
+              placeholder="e.g. Senior Web Developer at XYZ Ltd., responsible for leading a team of developers"
+            ></textarea>
+          </div>
+        </div>
+        <div class="finalsubmitbtn">
+          <button class="btn btn-primary submit-btn" type="submit">
+            SUBMIT
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <footer id="footer">
+      <div class="footer-left">
+        <a href="#">TERMS & CONDITIONS</a> | <a href="#">PRIVACY POLICY</a> |
+        <a href="#">ACCESSIBILITY</a> | <a href="#">CONTACT US</a>
+      </div>
+      <div class="footer-right">© 2024, Bold Limited. All rights reserved.</div>
+    </footer>
+    <script src="/static/scripts/form.js"></script>
+  </body>
+</html>

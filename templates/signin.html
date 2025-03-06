@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create an account - EliteResumeLab</title>
+    <link rel="stylesheet" href="/static/signin.css" />
+    <script src="/static/scripts/signin.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-side">
+        <div class="logo">EliteResumeLab</div>
+        <div class="slide-content">
+          <h2>Capturing Moments,<br />Creating Memories</h2>
+          <div class="slide-indicators">
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator active"></div>
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <h1>Sign-in</h1>
+        {% if messsage %}
+        <div>
+          <p>{{message}}</p>
+        </div>
+        {% endif %}
+        <form action="/signup" method="post">
+          <div class="name-group">
+            <input type="text" placeholder="First name" name="firstname" />
+            <input type="text" placeholder="Last name" name="lastname" />
+          </div>
+          <input type="email" placeholder="Email" name="email" />
+          <input
+            type="password"
+            placeholder="Enter your password"
+            name="password"
+          />
+          <input
+            type="password"
+            placeholder="Confirm your password"
+            name="confirm_password"
+          />
+          <div class="checkbox-group">
+            <input type="checkbox" id="terms" required />
+            <label for="terms">I agree to the Terms & Conditions</label>
+          </div>
+          <button type="submit" class="create-account-btn">
+            Create account
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

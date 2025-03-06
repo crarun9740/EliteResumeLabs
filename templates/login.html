@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create an account - EliteResumeLab</title>
+    <link rel="stylesheet" href="/static/login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-side">
+        <div class="logo">EliteResumeLab</div>
+        <div class="slide-content">
+          <h2>Rise Up,<br />Build Future.</h2>
+          <div class="slide-indicators">
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator active"></div>
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <h1>Login to Your Account</h1>
+        <p class="login-link">
+          Don't have an account? <a href="/signup">Sign in</a>
+        </p>
+        {% if message %}
+        <div>
+          <p>{{message}}</p>
+        </div>
+        {% endif %}
+        <form id="loginForm" action="/login" method="post">
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            name="email"
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            name="password"
+            required
+          />
+
+          <button type="submit" class="create-account-btn">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Link the JS file -->
+    <script src="/static/login.js"></script>
+  </body>
+</html>

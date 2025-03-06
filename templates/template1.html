@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ data.firstname }} {{ data.lastname }} - Resume</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        position: relative;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        font-weight: 300;
+        margin: 0;
+        line-height: 1.2;
+        margin-bottom: 10px;
+        margin-top: 30px;
+      }
+
+      h2 {
+        color: #8b0000;
+        font-size: 1.2em;
+        margin-top: 0;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .contact-info {
+        text-align: right;
+        font-size: 0.9em;
+      }
+
+      .contact-info p {
+        margin: 0;
+        line-height: 1.4;
+      }
+
+      .main-content {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .left-column {
+        flex: 1;
+        min-width: 200px;
+        margin-right: 40px;
+      }
+
+      .right-column {
+        flex: 2;
+        min-width: 300px;
+      }
+
+      ul {
+        padding-left: 20px;
+        margin-top: 0;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      .job {
+        margin-bottom: 20px;
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .job-company {
+        font-style: italic;
+        margin-bottom: 5px;
+      }
+
+      section {
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin-top: 0;
+      }
+
+      @media (max-width: 600px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .contact-info {
+          text-align: left;
+          margin-top: 10px;
+        }
+
+        .main-content {
+          flex-direction: column;
+        }
+
+        .left-column,
+        .right-column {
+          width: 100%;
+          margin-right: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="print-hidden print-btn" id="download">Download</button>
+    <header>
+      <h1>{{ data.firstname }}<br />{{ data.lastname }}</h1>
+      <div class="contact-info">
+        <p>{{ data.phone }}</p>
+        <p>
+          <a href="{{ data.linkedin }}" target="_blank">{{ data.linkedin }}</a>
+        </p>
+        <p><a href="mailto:{{ email }}">{{ email }}</a></p>
+        <p><a href="{{ data.github }}" target="_blank">{{ data.github }}</a></p>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2>Profile</h2>
+        <p>{{ data.summary }}</p>
+      </section>
+
+      <div class="main-content">
+        <div class="left-column">
+          <!-- Education Section -->
+          <section>
+            <h2>Education and Learning Background</h2>
+            <p><strong>College/School:</strong> {{ data.collegename }}</p>
+            <p><strong>Degree:</strong> {{ data.degree }}</p>
+            <p><strong>Department:</strong> {{ data.department }}</p>
+            <p><strong>Graduation Date:</strong> {{ data.graduation_date }}</p>
+          </section>
+
+          <!-- Key Skills Section -->
+          <section>
+            <h2>Key Skills</h2>
+            <p>{{data.skill}}</p>
+          </section>
+        </div>
+
+        <div class="right-column">
+          <!-- Work Experience Section -->
+          {% if data.experience != '' %}
+          <section>
+            <h2>Work Experience</h2>
+            <p>{{ data.experience }}</p>
+          </section>
+          {% endif %}
+
+          <!-- Projects Section -->
+          <section>
+            <h2>Projects</h2>
+            <div class="project">
+              <p><strong>Project Name:</strong> {{ data.project1_name }}</p>
+              <p><strong>Description:</strong> {{ data.project1_desc }}</p>
+            </div>
+          </section>
+
+          <!-- Summary Section -->
+          <section>
+            <h2>Summary</h2>
+            <p>{{ data.summary }}</p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <style>
+      @media print {
+        .print-hidden {
+          display: none;
+        }
+      }
+      .print-hidden.print-btn {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        position: absolute;
+        top: 20;
+        right: -200px;
+      }
+
+      .print-hidden.print-btn::before {
+        content: "\2193"; /* Downward arrow Unicode character */
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .print-hidden.print-btn:hover {
+        background-color: #2980b9;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        padding-left: 40px;
+      }
+
+      .print-hidden.print-btn:hover::before {
+        opacity: 1;
+        left: 15px;
+      }
+
+      .print-hidden.print-btn:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      @media print {
+        .print-hidden {
+          display: none !important;
+        }
+      }
+    </style>
+
+    <script>
+      document.getElementById("download").addEventListener("click", (e) => {
+        e.preventDefault();
+        window.print();
+      });
+    </script>
+  </body>
+</html>
