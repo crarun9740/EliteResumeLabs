@@ -1,0 +1,5 @@
+Flask
+Flask-MySQLdb
+MySQLdb
+beautifulsoup4
+google-generativeai
