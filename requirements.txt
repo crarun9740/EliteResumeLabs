@@ -2,4 +2,4 @@ Flask
 Flask-MySQLdb
 beautifulsoup4
 google-genai
-MySQL-python
+mysqlclient
