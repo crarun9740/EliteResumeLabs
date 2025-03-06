@@ -29,6 +29,7 @@ app.config['MYSQL_PASSWORD'] = 'arun'
 app.config['MYSQL_DB'] = 'EliteResumeLab'
 app.config['MYSQL_PORT'] = 3306
 
+
 mysql = MySQL(app)
 PDF_DIR = 'resume_templates'
 os.makedirs(PDF_DIR, exist_ok=True)
@@ -291,4 +292,4 @@ def download_resume(id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8000)
