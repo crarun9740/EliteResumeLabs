@@ -23,7 +23,7 @@ def login_required(func):
     return wrapper
 
 
-app.config['MYSQL_HOST'] = '127.0.0.1'
+app.config['MYSQL_HOST'] = '0.0.0.0'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'arun'
 app.config['MYSQL_DB'] = 'EliteResumeLab'
