@@ -4,7 +4,6 @@ from flask_mysqldb import MySQL
 from MySQLdb import cursors
 import os
 from secket_key import secret_key, MISTRAL_API_KEY, MISTRAL_AI_MODEL, GEMNI_KEY
-from mistralai import Mistral
 import json
 import bs4 as bs
 from google import genai
