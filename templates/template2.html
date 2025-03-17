@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ data.firstname }}{{data.lastname}} - Resume</title>
+    <title>{{ data.name }}{{data.lastname}} - Resume</title>
     <link rel="stylesheet" href="/static/template2.css" />
   </head>
   <style>
@@ -212,7 +212,7 @@
     <main class="resume">
       <!-- Header Section -->
       <header class="header">
-        <h1>{{ data.firstname }} {{ data.lastname }}</h1>
+        <h1>{{ data.name }} {{ data.lastname }}</h1>
         <p class="title">{{ data["current-role"] }}</p>
         <div class="contact">
           <a href="mailto:{{ data.email }}">{{ data.email }}</a> •
