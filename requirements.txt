@@ -3,3 +3,4 @@ Flask-MySQLdb
 beautifulsoup4
 google-genai
 mysqlclient
+firebase_admin
