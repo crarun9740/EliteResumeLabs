@@ -15,7 +15,7 @@ import json
 load_dotenv()
 
 if not os.path.exists("./firebase_config.json"):
-    json.dump(json.loads(os.getenv('GOOGLE_CREDS')),
+    json.dump(json.loads(os.environ.get('GOOGLE_CREDS')),
               open("./firebase_config.json", 'w'))
 
 cred = credentials.Certificate("./firebase_config.json")
