@@ -1,5 +1,7 @@
-secret_key = "asdjfkadsjfkladsjklfjasdk;lfjads;lfja;s"
+import os
 
-MISTRAL_API_KEY = "dew8Rbu9ZJqoqbfthiyj9dcMNv9nYUOp"
-MISTRAL_AI_MODEL = "mistral-medium"
-GEMNI_KEY = "AIzaSyDmMRlEaVwqdOKUVgx5xZQTVc125R_SRMU"
+secret_key = os.environ.get('secret_key')
+
+MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY")
+MISTRAL_AI_MODEL = os.environ.get("MISTRAL_AI_MODEL")
+GEMNI_KEY = os.environ.get("GEMINI_KEY")
