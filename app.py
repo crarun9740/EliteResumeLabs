@@ -9,9 +9,17 @@ import bs4 as bs
 import google.generativeai as genai
 import firebase_admin
 from firebase_admin import credentials, auth, firestore
+from dotenv import load_dotenv
+import json
 
+load_dotenv()
+
+if not os.path.exists("./firebase_config.json"):
+    json.dump(json.loads(os.getenv('GOOGLE_CREDS')),
+              open("./firebase_config.json", 'w'))
 
 cred = credentials.Certificate("./firebase_config.json")
+
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
